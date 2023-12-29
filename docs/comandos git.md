@@ -19,3 +19,12 @@ git init
 ```
 git remote add origin https://github.com/cchura94/back_laravue_proyecto.git
 ```
+-----
+## para actualizar los cambios 
+```
+git add .
+
+git commit -m "Nuevo Proyecto Laravel BD"
+
+git push origin master
+```
