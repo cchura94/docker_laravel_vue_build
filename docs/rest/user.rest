@@ -1,0 +1,37 @@
+GET http://127.0.0.1:8000/api/user
+
+### guardar user
+POST http://127.0.0.1:8000/api/user
+Content-Type: application/json
+
+{
+    "name": "cristian",
+    "email": "cristian@mail.com",
+    "password": "cristian54321"
+}
+
+### guardar user 2
+POST http://127.0.0.1:8000/api/user
+Content-Type: application/json
+
+{
+    "name": "admin",
+    "email": "admin@mail.com",
+    "password": "admin54321"
+}
+
+### guardar user 1
+PUT http://127.0.0.1:8000/api/user/1
+Content-Type: application/json
+
+{
+    "name": "cristian modificado",
+    "email": "cristian.modificado@mail.com",
+    "password": "cristian54321"
+}
+
+### buscar por id user 1
+GET http://127.0.0.1:8000/api/user/2
+
+### elimninar user 1
+DELETE http://127.0.0.1:8000/api/user/1
