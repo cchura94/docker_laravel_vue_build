@@ -1,0 +1,14 @@
+POST http://127.0.0.1:8000/api/v1/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email": "cristian@mail.com",
+    "password": "cristian54321"
+}
+
+# 2|n3aM9SnYoybyuA2XokyKpF1cKWz1CQG6SET7lO85aa8b65ad
+### perfil
+GET http://127.0.0.1:8000/api/perfil
+Accept: application/json
+Authorization: Bearer 4|CVJe40MdW9euCJBI0hWyzA6cAQUcTzXwKty61ZiC83bfe02d
