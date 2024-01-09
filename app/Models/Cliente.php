@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Persona extends Model
+class Cliente extends Model
 {
     use HasFactory;
 
-    // protected $table = "personas";
-
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function pedidos() {
+        return $this->hasMany(Pedido::class);
     }
 }
