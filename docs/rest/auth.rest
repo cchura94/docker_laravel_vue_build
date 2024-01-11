@@ -3,12 +3,29 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "cristian@mail.com",
-    "password": "cristian54321"
+    "email": "pedro@mail.com",
+    "password": "pedro54321"
 }
 
 # 2|n3aM9SnYoybyuA2XokyKpF1cKWz1CQG6SET7lO85aa8b65ad
 ### perfil
 GET http://127.0.0.1:8000/api/perfil
 Accept: application/json
-Authorization: Bearer 4|CVJe40MdW9euCJBI0hWyzA6cAQUcTzXwKty61ZiC83bfe02d
+Authorization: Bearer 5|QcLpp7OwHP9czRr0ZRj26uw9FrxfAfkSxZ8P811n6a64ec95
+
+### Registro Usuario
+POST http://127.0.0.1:8000/api/v1/auth/register
+Accept: application/json
+Content-Type: application/json
+
+
+### get perfil
+GET http://127.0.0.1:8000/api/v1/auth/profile
+Accept: application/json
+Authorization: Bearer 6|wuyCa9vPpAR8ud3hYHzp84kqNXDKbCO9D0FatUAbb23b889a
+
+### logout
+
+POST http://127.0.0.1:8000/api/v1/auth/logout
+Accept: application/json
+Authorization: Bearer 6|wuyCa9vPpAR8ud3hYHzp84kqNXDKbCO9D0FatUAbb23b889a
