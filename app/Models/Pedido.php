@@ -10,7 +10,9 @@ class Pedido extends Model
     use HasFactory;
 
     public function productos() {
-        return $this->belongsToMany(Producto::class);
+        return $this->belongsToMany(Producto::class)
+                    ->withPivot(["cantidad"])
+                    ->withTimestamps();
     }
 
     public function cliente() {
