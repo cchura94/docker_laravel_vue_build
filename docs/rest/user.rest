@@ -15,9 +15,9 @@ POST http://127.0.0.1:8000/api/user
 Content-Type: application/json
 
 {
-    "name": "admin",
-    "email": "admin@mail.com",
-    "password": "admin54321"
+    "name": "cristian",
+    "email": "cristian@mail.com",
+    "password": "cristian54321"
 }
 
 ### guardar user 1

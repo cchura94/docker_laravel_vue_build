@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categoria;
 
 class CategoriaController extends Controller
 {
@@ -12,6 +13,8 @@ class CategoriaController extends Controller
     public function index()
     {
         // listar
+        $categorias = Categoria::get();
+        return response()->json($categorias);
     }
 
     /**
@@ -27,7 +30,16 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nombre" => "required"
+        ]);
         // captura luego valida y guarda datos en la BD
+        $cat = new  Categoria;
+        $cat->nombre = $request->nombre;
+        $cat->detalle = $request->detalle;
+        $cat->save();
+
+        return response()->json(["message" => "Categoria registrada"], 201);
     }
 
     /**
