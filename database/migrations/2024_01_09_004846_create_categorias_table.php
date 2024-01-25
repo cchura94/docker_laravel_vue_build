@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string("nombre", 30);
             $table->text("detalle")->nullable();
+
+            $table->softDeletes(); // deleted_at
             $table->timestamps();
         });
     }

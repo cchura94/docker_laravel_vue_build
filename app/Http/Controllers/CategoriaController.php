@@ -10,10 +10,12 @@ class CategoriaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $buscar = $request->q;
         // listar
-        $categorias = Categoria::get();
+        // $categorias = Categoria::orderBy('id', 'asc')->where('estado', true)->get();
+        $categorias = Categoria::orderBy('id', 'asc')->where('nombre', 'like', "%".$buscar."%")->get();
         return response()->json($categorias);
     }
 
@@ -31,7 +33,7 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "nombre" => "required"
+            "nombre" => "required|unique:categorias"
         ]);
         // captura luego valida y guarda datos en la BD
         $cat = new  Categoria;
@@ -47,7 +49,9 @@ class CategoriaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $categoria = Categoria::find($id);
+
+        return response()->json($categoria, 200);
     }
 
     /**
@@ -63,7 +67,16 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            "nombre" => "required|unique:categorias,nombre,$id"
+        ]);
+
+        $categoria = Categoria::find($id);
+        $categoria->nombre = $request->nombre;
+        $categoria->detalle = $request->detalle;
+        $categoria->update();
+
+        return response()->json(["message" => "La categoria ha sido actualizada"], 201);
     }
 
     /**
@@ -71,7 +84,10 @@ class CategoriaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        $categoria->delete();
+
+        return response()->json(["message" => "La categoria ha sido eliminada"], 200);
     }
 
 }
