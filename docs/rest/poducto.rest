@@ -1,0 +1,18 @@
+GET http://127.0.0.1:8000/api/producto?page=1&limit=10&q=TECLADO
+
+### Guardar
+POST http://127.0.0.1:8000/api/producto
+Accept: application/json
+Content-Type: application/json
+
+{
+    "nombre": "PARLANTES",
+    "precio": 49.98,
+    "stock": 25,
+    "estado": 1,
+    "categoria_id": 1
+}
+
+### Mostrar
+GET http://127.0.0.1:8000/api/producto/6
+Accept: application/json
