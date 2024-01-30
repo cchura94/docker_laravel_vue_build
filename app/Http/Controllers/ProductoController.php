@@ -29,7 +29,7 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "nombre" => "required",
+            "nombre" => "required|unique:productos",
             "precio" => "required",
             "stock" => "required",
             "estado" => "required",
@@ -90,5 +90,25 @@ class ProductoController extends Controller
 
         $producto->update();
         return response()->json(["message" => "Producto Inactivado"], 200);
+    }
+
+    public function actualizarImagen(Request $request, $id){
+
+        if($file = $request->file('imagen')){
+            $direccion_imagen = time()."-". $file->getClientOriginalName();
+            $file->move("imagenes/", $direccion_imagen);
+
+            $direccion_imagen = "imagenes/".$direccion_imagen;
+
+            $producto = Producto::find($id);
+            $producto->imagen = $direccion_imagen;
+            $producto->update();
+
+            return response()->json(["message" => "Imagen actualizado"], 200);
+
+        }else{
+            return response()->json(["message" => "La Imagen es Obligatorio"], 422);
+        }
+
     }
 }

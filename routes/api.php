@@ -33,5 +33,8 @@ Route::prefix('v1/auth')->group(function(){
     });
 });
 
+// subida de imagenes
+Route::post("producto/{id}/carga-imagen", [ProductoController::class, "actualizarImagen"]);
+
 Route::apiResource("categoria", CategoriaController::class);
 Route::apiResource("producto", ProductoController::class);
