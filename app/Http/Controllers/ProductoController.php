@@ -86,7 +86,13 @@ class ProductoController extends Controller
     public function destroy(string $id)
     {
         $producto = Producto::findOrFail($id);
-        $producto->estado = false;
+        if($producto->estado){
+            $producto->estado = false;
+        }else{
+            $producto->estado = true;
+        }
+
+        // $producto->estado?$producto->estado = true:$producto->estado = false;
 
         $producto->update();
         return response()->json(["message" => "Producto Inactivado"], 200);

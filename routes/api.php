@@ -33,8 +33,17 @@ Route::prefix('v1/auth')->group(function(){
     });
 });
 
-// subida de imagenes
-Route::post("producto/{id}/carga-imagen", [ProductoController::class, "actualizarImagen"]);
+Route::middleware('auth:sanctum')->group(function(){
+    // subida de imagenes
+    Route::post("producto/{id}/carga-imagen", [ProductoController::class, "actualizarImagen"]);
+    
+    Route::apiResource("categoria", CategoriaController::class);
+    Route::apiResource("producto", ProductoController::class);
 
-Route::apiResource("categoria", CategoriaController::class);
-Route::apiResource("producto", ProductoController::class);
+});
+
+Route::get("/no-autorizado", function(){
+
+    return response()->json(["mensahe" => "No estas autorizado para ver esta pagina"]);
+
+})->name('login');
