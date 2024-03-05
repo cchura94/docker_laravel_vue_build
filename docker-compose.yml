@@ -13,7 +13,7 @@ services:
 
   nginx:
     container_name: nginx
-    image: nginx:apine
+    image: nginx:alpine
     ports:
       - 80:80
     volumes:
@@ -21,7 +21,7 @@ services:
       - .docker/nginx/default.conf:/etc/nginx/config.d/default.conf
     depends_on:
       - php
-  
+
   db:
     container_name: db
     image: mysql:8.1
