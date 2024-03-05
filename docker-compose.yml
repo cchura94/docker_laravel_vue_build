@@ -5,11 +5,11 @@ services:
   php:
     container_name: php
     build:
-      context: .docker/php/
-      dockerfile: Dockerfile
-    ports:
-      - 8000:8000
+      context: .
+      dockerfile: .docker/php/Dockerfile
     working_dir: /var/www
+    volumes:
+      - .:/var/www
 
   nginx:
     container_name: nginx
