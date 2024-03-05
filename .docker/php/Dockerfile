@@ -1,7 +1,7 @@
 FROM php:8.2-fpm
 
 RUN apt-get update \
-    && apt-get install -y build-essentials zlib1g-dev default-mysql-client curl gnupg procps vim git unzip libzip-dev libpq-dev \
+    && apt-get install -y build-essential zlib1g-dev default-mysql-client curl gnupg procps vim git unzip libzip-dev libpq-dev \
     && docker-php-ext-install zip pdo_mysql pdo_pgsql pgsql
 
 RUN apt-get install -y libicu-dev \
