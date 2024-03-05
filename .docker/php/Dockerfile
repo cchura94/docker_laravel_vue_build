@@ -20,5 +20,7 @@ ENV COMPOSER_HOME /composer
 ENV PATH $PATH:/composer/vendor/bin
 RUN composer config --global process-timeout 3600
 
+COPY . /var/www
+
 EXPOSE 8000
 WORKDIR /var/www
