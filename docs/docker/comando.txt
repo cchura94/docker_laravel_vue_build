@@ -1,0 +1,7 @@
+- para actualizar los paquetes de Laravel
+docker exec php composer update
+
+- permisos
+docker exec php chmod -R 777 storage
+
+docker exec php chmod -R 775 storage
