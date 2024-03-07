@@ -1,1 +1,0 @@
-import{_ as e,c as n,o as s,a as t}from"./index-KKq240Ma.js";const c={},o={class:"surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden"},r=t("h1",null,"This is an about page",-1),a=[r];function i(_,d){return s(),n("div",o,a)}const l=e(c,[["render",i]]);export{l as default};
